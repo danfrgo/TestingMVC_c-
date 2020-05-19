@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMvc.Data;
+using SalesWebMvc.Services;
 
 namespace SalesWebMvc
 {
@@ -41,8 +42,11 @@ namespace SalesWebMvc
                         builder => builder.MigrationsAssembly("SalesWebMvc")));
             // builder.MigrationsAssembly("SalesWebMvc"))); - SalesWebMvc é o nome do projeto e deve estar entre ()
 
+
+            //estes serviços podem ser injetados em outras classes
             services.AddScoped<SeedingService>();
-        
+            services.AddScoped<SellerService>();
+
         
         }
 
