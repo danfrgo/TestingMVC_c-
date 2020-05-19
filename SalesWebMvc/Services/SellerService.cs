@@ -23,7 +23,12 @@ namespace SalesWebMvc.Services
             return _context.Seller.ToList();
         }
 
-
+        // o metodo vai inserir o obj na base de dados
+        public void Insert(Seller obj)
+        {
+            _context.Add(obj);
+            _context.SaveChanges();
+        }
 
     }
 }
