@@ -31,5 +31,22 @@ namespace SalesWebMvc.Services
             _context.SaveChanges();
         }
 
+        // recebeum int id e retorna o vendedor que possui esse id,
+        // se o vendedor nao existir retorna nulo
+        public Seller FindById(int id)
+        {
+            return _context.Seller.FirstOrDefault(obj => obj.Id == id);
+        }
+
+        // implemtançao baseada no Scafold que fiz nos departamentos
+        public void Remove(int id)
+        {
+            var obj = _context.Seller.Find(id);
+            _context.Seller.Remove(obj);
+            _context.SaveChanges();
+        }
+
+
+
     }
 }
